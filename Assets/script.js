@@ -68,24 +68,27 @@ var specialcharacterPassword = function(){
  }
 };
 
-// Verify if at least ONE function was entered as true
-
-
-
-
-
 // Generate Password function upon Button Click
 function generatePassword (){
-  // First prompt asking for length of password
+   // First prompt asking for length of password
   lengthPassword();
-  // Check if user wants lower case 
+/*  // Check if user wants lower case MIGHT BE NEEDED LATER? REMOVE LATER IF NOT NEEDED
   lowercasePassword();
   // Check if user wants upper case
   uppercasePassword();
   // Check if user wants numerical prompts included
   numericalPassword();
   // Check if user wants special characters included
-  specialcharacterPassword();
+  specialcharacterPassword(); */
+
+  if (lowercasePassword("") || uppercasePassword ("") || numericalPassword ("") || specialcharacterPassword ("")){
+    window.alert("Your password will include the criteria you selected!");
+  }
+  
+  else { 
+    window.alert("You did not select ANY password type to be included, please repeat from the start and select at LEAST one! Thank you!");
+  }; 
+  
 };
 
 
