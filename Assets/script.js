@@ -1,3 +1,17 @@
+// Create Password function
+// First check for desired length between 8 and 128 characters
+// second check for multiple criteria including lowercase, uppercase, numbers and special characters to be included
+// using those criteria that were selected, confirm that at LEAST one was selected 
+// create a password that is the desired length and includes at least 1 character from each selected criteria
+// display the password as an alert or as text on the html page -- either is ok
+
+// Global variables needed for Password functions
+
+var lowercasePrompt
+var uppercasePrompt
+var numericalPrompt
+var specialcharacterPrompt
+var length
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -15,7 +29,7 @@ generateBtn.addEventListener("click", writePassword);
 
 // Length of password Function
 var lengthPassword = function(){
-  var length = window.prompt("Please confirm the length of your password! Minimum characters are 8, max are 128!");
+  length = window.prompt("Please confirm the length of your password! Minimum characters are 8, max are 128!");
   length = parseInt(length);
     if (length >=8 && length <= 128) {
       window.alert("Your password length will be " + length + "!");
@@ -28,7 +42,7 @@ var lengthPassword = function(){
 
 // Lowercase function
 var lowercasePassword = function(){
-  var lowercasePrompt = window.confirm("Do you want to include lower case characters in your password?");
+  lowercasePrompt = window.confirm("Do you want to include lower case characters in your password?");
   if (lowercasePrompt) {
     window.alert ("Lowercase characters will be included in your password!");
   }
@@ -38,7 +52,7 @@ var lowercasePassword = function(){
 };
 // Uppercase function
 var uppercasePassword = function(){
-  var uppercasePrompt = window.confirm("Do you want to include upper case characters in your password?");
+  uppercasePrompt = window.confirm("Do you want to include upper case characters in your password?");
   if (uppercasePrompt) {
     window.alert ("Uppercase characters will be included in your password!");
     }
@@ -49,7 +63,7 @@ var uppercasePassword = function(){
 // Numerical function
 
 var numericalPassword = function(){
-  var numericalPrompt = window.confirm("Do you want to include numbers in your password?");
+  numericalPrompt = window.confirm("Do you want to include numbers in your password?");
   if (numericalPrompt){
     window.alert ("Numbers will be included in your password!"); 
   }
@@ -59,7 +73,7 @@ var numericalPassword = function(){
 };
 // Special Character function
 var specialcharacterPassword = function(){
-  var specialcharacterPrompt = window.confirm("Do you want us to include special characters in your password?");
+  specialcharacterPrompt = window.confirm("Do you want us to include special characters in your password?");
  if (specialcharacterPrompt){
    window.alert ("Special characters will be included in your password!");
  } 
@@ -72,23 +86,24 @@ var specialcharacterPassword = function(){
 function generatePassword (){
    // First prompt asking for length of password
   lengthPassword();
-/*  // Check if user wants lower case MIGHT BE NEEDED LATER? REMOVE LATER IF NOT NEEDED
+  // Check if user wants lower case
   lowercasePassword();
   // Check if user wants upper case
   uppercasePassword();
   // Check if user wants numerical prompts included
   numericalPassword();
   // Check if user wants special characters included
-  specialcharacterPassword(); */
+  specialcharacterPassword(); 
 
-  if (lowercasePassword("") || uppercasePassword ("") || numericalPassword ("") || specialcharacterPassword ("")){
+  if (lowercasePrompt || uppercasePrompt || numericalPrompt || specialcharacterPrompt){
     window.alert("Your password will include the criteria you selected!");
   }
   
   else { 
     window.alert("You did not select ANY password type to be included, please repeat from the start and select at LEAST one! Thank you!");
+    generatePassword ();
   }; 
-  
+   
 };
 
 
