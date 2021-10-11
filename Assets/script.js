@@ -6,12 +6,16 @@
 // display the password as an alert or as text on the html page -- either is ok
 
 // Global variables needed for Password functions
+const alphaLower = "abcdefghijklmnopqrstuvwxyz";
+const alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const numbers = "0123456789";
+const symbols = "!@#$%^&*_-+=";
 
-var lowercasePrompt
-var uppercasePrompt
-var numericalPrompt
-var specialcharacterPrompt
-var length
+var lowercasePrompt;
+var uppercasePrompt;
+var numericalPrompt;
+var specialcharacterPrompt;
+var length;
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -103,7 +107,8 @@ function generatePassword (){
     window.alert("You did not select ANY password type to be included, please repeat from the start and select at LEAST one! Thank you!");
     generatePassword ();
   }; 
-   
+
+
 };
 
 
