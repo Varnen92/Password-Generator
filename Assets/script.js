@@ -102,59 +102,21 @@ function generatePasswordOptions() {
 function generatePassword() {
   var passwordGenerateOptions = generatePasswordOptions();
   var pCharacters = "";
-  while (passwordGenerateOptions.length != pCharacters.length){
-  if (passwordGenerateOptions.hasLowercase) {
-    pCharacters += alphaLower[Math.floor(Math.random() * alphaLower.length)];
-  }
-/*   if (passwordGenerateOptions.hasUppercase) {
-    pCharacters += alphaUpper[Math.floor(Math.random() * alphaUpper.length)];
-  };
+  while (passwordGenerateOptions.length != pCharacters.length) {
+    if (passwordGenerateOptions.hasLowercase) {
+      pCharacters += alphaLower[Math.floor(Math.random() * alphaLower.length)];
+    };
+    if (passwordGenerateOptions.hasUppercase) {
+      pCharacters += alphaUpper[Math.floor(Math.random() * alphaUpper.length)];
+    };
 
-  if (passwordGenerateOptions.hasSpecial) {
-    pCharacters += symbols[Math.floor(Math.random() * symbols.length)];
-  }
- 
-  if (passwordGenerateOptions.hasNumbers) {
-    pCharacters += numbers[Math.floor(Math.random() * numbers.length)];
-  } */
+    if (passwordGenerateOptions.hasSpecial) {
+      pCharacters += symbols[Math.floor(Math.random() * symbols.length)];
+    };
 
+    if (passwordGenerateOptions.hasNumbers) {
+      pCharacters += numbers[Math.floor(Math.random() * numbers.length)];
+    };
   };
   window.alert("Your new password is " + pCharacters + " !");
 }
-
-
-// Uppercase Function with Switch Prompts
-/* var uppercasePassword = function(){
-  var uppercasePrompt = window.prompt("Do you want to include upper case in your password?");
-  uppercasePrompt = uppercasePrompt.toLowerCase();
-  switch(uppercasePrompt) {
-    case 'yes':
-      window.alert("Uppercase will be included in your password!")
-      break;
-    case 'no':
-      window.alert("Uppercase will not be included in your password!")
-      break;
-    default:
-      window.alert("You did not pick a valid option. Try again.");
-    uppercasePassword();
-    break;
-  }
-}*/
-
-/* // Lowercase function with Switch Prompts
- var lowercasePassword = function(){
-  var lowercasePrompt = window.prompt("Do you want to include lower case in your password?");
-  lowercasePrompt = lowercasePrompt.toLowerCase();
-  switch(lowercasePrompt) {
-    case 'yes':
-      window.alert("Lowercase will be included in your password!")
-      break;
-    case 'no':
-      window.alert("Lowercase will not be included in your password!")
-      break;
-    default:
-      window.alert("You did not pick a valid option. Try again.");
-    lowercasePassword();
-    break;
-  }
-}  */
