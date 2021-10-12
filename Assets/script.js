@@ -1,10 +1,3 @@
-// Create Password function
-// First check for desired length between 8 and 128 characters
-// second check for multiple criteria including lowercase, uppercase, numbers and special characters to be included
-// using those criteria that were selected, confirm that at LEAST one was selected 
-// create a password that is the desired length and includes at least 1 character from each selected criteria
-// display the password as an alert or as text on the html page -- either is ok
-
 // Global variables needed for Password functions
 const alphaLower = "abcdefghijklmnopqrstuvwxyz";
 const alphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -22,16 +15,11 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// Random alpha lower function
-/* function getRandomAlphaLower() {
-  alphaLower[Math.floor(Math.random() * alphaLower.length)];
-}
- */
-
 // Generate Password function upon Button Click
 function generatePasswordOptions() {
   // Length of password Function
   var lengthPassword = window.prompt("Please confirm the length of your password! Minimum characters are 8, max are 128!");
+  // Convert input to int for parsability
   lengthPassword = parseInt(lengthPassword);
   if (lengthPassword >= 8 && lengthPassword <= 128) {
     window.alert("Your password length will be " + lengthPassword + "!");
@@ -104,6 +92,7 @@ function generatePasswordOptions() {
 function generatePassword() {
   var passwordGenerateOptions = generatePasswordOptions();
   var pCharacters = "";
+  // for loop to add a character to potential password combo
   for (let i = 0; i < 129; i++) {
     if (passwordGenerateOptions.hasLowercase && ((pCharacters.length + 1) <= passwordGenerateOptions.length)) {
       pCharacters += alphaLower[Math.floor(Math.random() * alphaLower.length)]
@@ -120,5 +109,6 @@ function generatePassword() {
       pCharacters += numbers[Math.floor(Math.random() * numbers.length)]
     }
   };
+  // Displays new password as an alert
   window.alert("Your new password is " + pCharacters);
 }
