@@ -102,7 +102,8 @@ function generatePasswordOptions() {
 function generatePassword() {
   var passwordGenerateOptions = generatePasswordOptions();
   var pCharacters = "";
-  while (passwordGenerateOptions.length != pCharacters.length) {
+  debugger;
+  for (let i = 0; i = passwordGenerateOptions.length; i++) {
     if (passwordGenerateOptions.hasLowercase) {
       pCharacters += alphaLower[Math.floor(Math.random() * alphaLower.length)];
     };
