@@ -16,11 +16,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("5#password");
-
-  passwordText.value = password;
-
+  generatePassword()
 }
 
 // Add event listener to generate button
@@ -79,6 +75,8 @@ function generatePasswordOptions() {
     window.alert("Special characters will NOT be included in your password!");
   };
 
+  // Verifies if selection critera was valid
+
   if (lowercasePassword || uppercasePassword || numericalPassword || specialcharacterPassword) {
     window.alert("Your password will include the criteria you selected!");
   }
@@ -87,6 +85,8 @@ function generatePasswordOptions() {
     window.alert("You did not select ANY password type to be included, please repeat from the start and select at LEAST one! Thank you!");
     generatePasswordOptions();
   };
+
+  // Stores password criteria's in order to reference later
 
   var passwordCriteria = {
     length: lengthPassword,
@@ -99,24 +99,27 @@ function generatePasswordOptions() {
 
 };
 
+// Function to generate password 
+
 function generatePassword() {
   var passwordGenerateOptions = generatePasswordOptions();
   var pCharacters = "";
+  debugger;
   for (let i = 0; pCharacters.length <= passwordGenerateOptions.length; i++) {
-    if (passwordGenerateOptions.hasLowercase) {
-      pCharacters += alphaLower[Math.floor(Math.random() * alphaLower.length)];
+    if (passwordGenerateOptions.hasLowercase && ((pCharacters.length + 1) <= passwordGenerateOptions.length)) {
+      pCharacters += alphaLower[Math.floor(Math.random() * alphaLower.length)]
     }
-    if (passwordGenerateOptions.hasUppercase) {
-      pCharacters += alphaUpper[Math.floor(Math.random() * alphaUpper.length)];
-    }
-
-    if (passwordGenerateOptions.hasSpecial) {
-      pCharacters += symbols[Math.floor(Math.random() * symbols.length)];
+    if (passwordGenerateOptions.hasUppercase && ((pCharacters.length + 1) <= passwordGenerateOptions.length)) {
+      pCharacters += alphaUpper[Math.floor(Math.random() * alphaUpper.length)]
     }
 
-    if (passwordGenerateOptions.hasNumbers) {
-      pCharacters += numbers[Math.floor(Math.random() * numbers.length)];
+    if (passwordGenerateOptions.hasSpecial && ((pCharacters.length + 1) <= passwordGenerateOptions.length)) {
+      pCharacters += symbols[Math.floor(Math.random() * symbols.length)]
+    }
+
+    if (passwordGenerateOptions.hasNumbers && ((pCharacters.length + 1) <= passwordGenerateOptions.length)) {
+      pCharacters += numbers[Math.floor(Math.random() * numbers.length)]
     }
   };
-  window.alert("Your new password is " + pCharacters + " !");
+  window.alert("Your new password is " + pCharacters);
 }
