@@ -106,9 +106,20 @@ function generatePassword() {
   if (passwordGenerateOptions.hasLowercase) {
     pCharacters += alphaLower[Math.floor(Math.random() * alphaLower.length)];
   }
-  window.alert(pCharacters);
+/*   if (passwordGenerateOptions.hasUppercase) {
+    pCharacters += alphaUpper[Math.floor(Math.random() * alphaUpper.length)];
+  };
 
+  if (passwordGenerateOptions.hasSpecial) {
+    pCharacters += symbols[Math.floor(Math.random() * symbols.length)];
   }
+ 
+  if (passwordGenerateOptions.hasNumbers) {
+    pCharacters += numbers[Math.floor(Math.random() * numbers.length)];
+  } */
+
+  };
+  window.alert("Your new password is " + pCharacters + " !");
 }
 
 
