@@ -42,7 +42,7 @@ function generatePasswordOptions() {
   }
   else {
     window.alert("Please enter a valid password length!")
-    return lengthPassword();
+    generatePasswordOptions()
   };
 
   // Lowercase function
@@ -102,22 +102,21 @@ function generatePasswordOptions() {
 function generatePassword() {
   var passwordGenerateOptions = generatePasswordOptions();
   var pCharacters = "";
-  debugger;
-  for (let i = 0; i = passwordGenerateOptions.length; i++) {
+  for (let i = 0; pCharacters.length <= passwordGenerateOptions.length; i++) {
     if (passwordGenerateOptions.hasLowercase) {
       pCharacters += alphaLower[Math.floor(Math.random() * alphaLower.length)];
-    };
+    }
     if (passwordGenerateOptions.hasUppercase) {
       pCharacters += alphaUpper[Math.floor(Math.random() * alphaUpper.length)];
-    };
+    }
 
     if (passwordGenerateOptions.hasSpecial) {
       pCharacters += symbols[Math.floor(Math.random() * symbols.length)];
-    };
+    }
 
     if (passwordGenerateOptions.hasNumbers) {
       pCharacters += numbers[Math.floor(Math.random() * numbers.length)];
-    };
+    }
   };
   window.alert("Your new password is " + pCharacters + " !");
 }
